@@ -37,6 +37,8 @@ The JSON response should be:
 * Adding validation for the PUT requests
 * Adding a series of automated regression tests as part of the build process
 * Increased uptime and scalability by increasing the Heroku subscription or migrating to another platform to host
+* Adding authentication to have some sort of security model for the API
+* A cleaner UI for the web page that displays the inventory and possibly more features for that view
 
 
 #Extra info
