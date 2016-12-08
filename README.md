@@ -28,7 +28,9 @@ The JSON response should be:
 
 #Quick endpoints for each item:
 https://guarded-caverns-35176.herokuapp.com/products/5848de83bf6451001158e16a
+
 https://guarded-caverns-35176.herokuapp.com/products/5848de74bf6451001158e169
+
 https://guarded-caverns-35176.herokuapp.com/products/5848de58bf6451001158e168
 
 #Assumptions
