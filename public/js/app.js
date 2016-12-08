@@ -60,7 +60,7 @@ angular.module("contactsApp", ['ngRoute'])
                 });
         }
         this.deleteContact = function(contactId) {
-            var url = "/contacts/" + contactId;
+            var url = "/products/" + contactId;
             return $http.delete(url).
                 then(function(response) {
                     return response;
