@@ -26,6 +26,11 @@ The JSON response should be:
   "createDate": "2016-12-08T04:16:03.776Z"
 }
 
+#Quick endpoints for each item:
+https://guarded-caverns-35176.herokuapp.com/products/5848de83bf6451001158e16a
+https://guarded-caverns-35176.herokuapp.com/products/5848de74bf6451001158e169
+https://guarded-caverns-35176.herokuapp.com/products/5848de58bf6451001158e168
+
 #Assumptions
 * The focus was to create an application that provides a RESTful service to get product information by productID's.
 * A NoSQL database was to be used to provide the product info
