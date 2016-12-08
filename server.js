@@ -88,7 +88,7 @@ app.get("/contacts/:id", function(req, res) {
 });
 
 app.get("/contacts/:firstName", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).findOne({ _id: new ObjectID(req.params.firstName) }, function(err, doc) {
+  db.collection(CONTACTS_COLLECTION).findOne({ firstName: new ObjectID(req.params.firstName) }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get contact");
     } else {
