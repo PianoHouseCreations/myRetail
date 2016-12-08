@@ -24,48 +24,48 @@ angular.module("contactsApp", ['ngRoute'])
     })
     .service("Contacts", function($http) {
         this.getContacts = function() {
-            return $http.get("/contacts").
+            return $http.get("/items").
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error finding contacts.");
+                    alert("Error finding items.");
                 });
         }
-        this.createContact = function(contact) {
-            return $http.post("/contacts", contact).
+        this.createContact = function(items) {
+            return $http.post("/items", contact).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error creating contact.");
+                    alert("Error creating items.");
                 });
         }
         this.getContact = function(contactId) {
-            var url = "/contacts/" + contactId;
+            var url = "/items/" + contactId;
             return $http.get(url).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error finding this contact.");
+                    alert("Error finding this items.");
                 });
         }
         this.editContact = function(contact) {
-            var url = "/contacts/" + contact._id;
+            var url = "/items/" + contact._id;
             console.log(contact._id);
             return $http.put(url, contact).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error editing this contact.");
+                    alert("Error editing this items.");
                     console.log(response);
                 });
         }
         this.deleteContact = function(contactId) {
-            var url = "/contacts/" + contactId;
+            var url = "/items/" + contactId;
             return $http.delete(url).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error deleting this contact.");
+                    alert("Error deleting this items.");
                     console.log(response);
                 });
         }
@@ -80,7 +80,7 @@ angular.module("contactsApp", ['ngRoute'])
 
         $scope.saveContact = function(contact) {
             Contacts.createContact(contact).then(function(doc) {
-                var contactUrl = "/contact/" + doc.data._id;
+                var contactUrl = "/items/" + doc.data._id;
                 $location.path(contactUrl);
             }, function(response) {
                 alert(response);
