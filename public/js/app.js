@@ -72,6 +72,10 @@ angular.module("contactsApp", ['ngRoute'])
     })
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
+
+        $scope.searchById = function(searchedItem) {
+            
+        }
     })
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
