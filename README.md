@@ -26,9 +26,23 @@ The JSON response should be:
   "createDate": "2016-12-08T04:16:03.776Z"
 }
 
+#Assumptions
+* The focus was to create an application that provides a RESTful service to get product information by productID's.
+* A NoSQL database was to be used to provide the product info
+* The example product ID's and response given in the directions were not part of the spec, but simply guides to facilitate thinking about the exercise
+
+#Stretch goals considered
+* Refactoring the codebase to eliminate the previous use case for the code
+* Adding in a series of HTTP PUT requests to update product information, such as price
+* Adding validation for the PUT requests
+* Adding a series of automated regression tests as part of the build process
+* Increased uptime and scalability by increasing the Heroku subscription or migrating to another platform to host
+
+
 #Extra info
 
 This application was manually tested using Postman (https://www.getpostman.com/)
 
 You can view a list of the items in the database along with their ID's here:
 https://guarded-caverns-35176.herokuapp.com/#/
+
