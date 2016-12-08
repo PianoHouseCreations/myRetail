@@ -26,6 +26,8 @@ The JSON response should be:
   "createDate": "2016-12-08T04:16:03.776Z"
 }
 
+#Extra info
+
 This application was manually tested using Postman (https://www.getpostman.com/)
 
 You can view a list of the items in the database along with their ID's here:
