@@ -15,9 +15,9 @@
 <div class="container">
   <table class="table table-hover">
     <tbody>
-      <tr ng-repeat="contact in contacts | orderBy:'lastName'" style="cursor:pointer">
+      <tr ng-repeat="contact in contacts | orderBy:'department'" style="cursor:pointer">
         <td>
-          <a ng-href="#/contact/{{contact._id}}">{{ contact.title }}    id:{{ contact._id }}</a>
+          <a ng-href="#/contact/{{contact._id}}">{{ contact.description }} {{ contact.department }}  id:{{ contact._id }}</a>
         </td>
       </tr>
     </tbody>
