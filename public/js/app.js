@@ -1,77 +1,77 @@
-angular.module("contactsApp", ['ngRoute'])
+angular.module("productsApp", ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
                 templateUrl: "list.html",
                 controller: "ListController",
                 resolve: {
-                    contacts: function(Contacts) {
-                        return Contacts.getContacts();
+                    products: function(Products) {
+                        return Products.getProducts();
                     }
                 }
             })
-            .when("/new/contact", {
-                controller: "NewContactController",
-                templateUrl: "contact-form.html"
+            .when("/new/product", {
+                controller: "NewProductController",
+                templateUrl: "product-form.html"
             })
-            .when("/contact/:contactId", {
+            .when("/product/:productId", {
                 controller: "EditContactController",
-                templateUrl: "contact.html"
+                templateUrl: "product.html"
             })
             .otherwise({
                 redirectTo: "/"
             })
     })
     .service("Contacts", function($http) {
-        this.getContacts = function() {
-            return $http.get("/contacts").
+        this.getProducts = function() {
+            return $http.get("/products").
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error finding contacts.");
+                    alert("Error finding products.");
                 });
         }
-        this.createContact = function(contact) {
-            return $http.post("/contacts", contact).
+        this.createContact = function(product) {
+            return $http.post("/products", product).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error creating contact.");
+                    alert("Error creating product.");
                 });
         }
-        this.getContact = function(contactId) {
-            var url = "/contacts/" + contactId;
+        this.getContact = function(productId) {
+            var url = "/products/" + productId;
             return $http.get(url).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error finding this contact.");
+                    alert("Error finding this product.");
                 });
         }
-        this.editContact = function(contact) {
-            var url = "/contacts/" + contact._id;
-            console.log(contact._id);
-            return $http.put(url, contact).
+        this.editContact = function(product) {
+            var url = "/products/" + product._id;
+            console.log(product._id);
+            return $http.put(url, product).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error editing this contact.");
+                    alert("Error editing this product.");
                     console.log(response);
                 });
         }
-        this.deleteContact = function(contactId) {
-            var url = "/products/" + contactId;
+        this.deleteContact = function(productId) {
+            var url = "/products/" + productId;
             return $http.delete(url).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error deleting this contact.");
+                    alert("Error deleting this product.");
                     console.log(response);
                 });
         }
     })
-    .controller("ListController", function(contacts, $scope) {
-        $scope.contacts = contacts.data;
+    .controller("ListController", function(products, $scope) {
+        $scope.products = products.data;
 
         $scope.searchById = function(searchedItem) {
             
@@ -82,39 +82,39 @@ angular.module("contactsApp", ['ngRoute'])
             $location.path("#/");
         }
 
-        $scope.saveContact = function(contact) {
-            Contacts.createContact(contact).then(function(doc) {
-                var contactUrl = "/contact/" + doc.data._id;
-                $location.path(contactUrl);
+        $scope.saveContact = function(product) {
+            Contacts.createContact(product).then(function(doc) {
+                var productUrl = "/product/" + doc.data._id;
+                $location.path(productUrl);
             }, function(response) {
                 alert(response);
             });
         }
     })
     .controller("EditContactController", function($scope, $routeParams, Contacts) {
-        Contacts.getContact($routeParams.contactId).then(function(doc) {
-            $scope.contact = doc.data;
+        Contacts.getContact($routeParams.productId).then(function(doc) {
+            $scope.product = doc.data;
         }, function(response) {
             alert(response);
         });
 
         $scope.toggleEdit = function() {
             $scope.editMode = true;
-            $scope.contactFormUrl = "contact-form.html";
+            $scope.productFormUrl = "product-form.html";
         }
 
         $scope.back = function() {
             $scope.editMode = false;
-            $scope.contactFormUrl = "";
+            $scope.productFormUrl = "";
         }
 
-        $scope.saveContact = function(contact) {
-            Contacts.editContact(contact);
+        $scope.saveContact = function(product) {
+            Contacts.editContact(product);
             $scope.editMode = false;
-            $scope.contactFormUrl = "";
+            $scope.productFormUrl = "";
         }
 
-        $scope.deleteContact = function(contactId) {
-            Contacts.deleteContact(contactId);
+        $scope.deleteContact = function(productId) {
+            Contacts.deleteContact(productId);
         }
     });
