@@ -6,33 +6,32 @@
 <div class="container">
   <div>
     <p>
-      <label>title (required)</label> 
-      <input id="name" class="form-control" type="text" ng-model="product.firstName" required> 
+      <label>department (required)</label> 
+      <input id="name" class="form-control" type="text" ng-model="product.department" required> 
     </p>
     <p>
-      <label>Last Name (required)</label> 
-      <input id="name" class="form-control" type="text" ng-model="product.lastName" required> 
+      <label>description (required)</label> 
+      <input id="name" class="form-control" type="text" ng-model="product.description" required> 
     </p>
- <!--    <p>
-      <label>Email (required)</label> 
-      <input id="name" class="form-control" type="text" ng-model="product.email" required> 
-    </p> -->
-    <p>
-      <label>Phone (Mobile)</label> 
-      <input id="name" class="form-control" type="text" ng-model="product.phone.mobile"> 
-   <!--  </p>
-    <p>
-      <label>Phone (Work)</label> 
-      <input id="name" class="form-control" type="text" ng-model="product.phone.work"> 
     </p>
     <p>
-      <label>Address</label> 
-      <input id="name" class="form-control" type="text" ng-model="product.address"> 
+      <label>itemType (required)</label> 
+      <input id="name" class="form-control" type="text" ng-model="product.itemType" required> 
+    </p>
     </p>
     <p>
-      <label>Twitter Handle</label> 
-      <input id="name" class="form-control" type="text" ng-model="product.twitter"> 
-    </p> -->
+      <label>inventoryValue (required)</label> 
+      <input id="name" class="form-control" type="text" ng-model="product.inventoryValue" required> 
+    </p>
+    </p>
+    <p>
+      <label>currentPrice (required)</label> 
+      <input id="name" class="form-control" type="text" ng-model="product.currentPrice" required> 
+    </p>
+    <p>
+      <label>currencyCode (required)</label> 
+      <input id="name" class="form-control" type="text" ng-model="product.currencyCode" required> 
+    </p>
     <p>
       <button style="margin-top:20px" class="btn btn-default" ng-click="saveProduct(product)">Save</button>
       <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Back</button>
