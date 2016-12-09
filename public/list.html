@@ -6,18 +6,18 @@
   </div>
   <div class="col-md-3">
   </div>
-  <!-- <div class="col-md-2">
-    <a style="margin-top:20px" class="btn btn-default" href="#/new/contact">New</a>
-  </div> -->
+  <div class="col-md-2">
+    <a style="margin-top:20px" class="btn btn-default" href="#/new/product">New</a>
+  </div>
   <div class="col-md-1">
   </div>
 </div>
 <div class="container">
   <table class="table table-hover">
     <tbody>
-      <tr ng-repeat="contact in contacts | orderBy:'department'" style="cursor:pointer">
+      <tr ng-repeat="product in products | orderBy:'department'" style="cursor:pointer">
         <td>
-          <a ng-href="#/contact/{{contact._id}}">{{ contact.description }} {{ contact.department }}  id:{{ contact._id }}</a>
+          <a ng-href="#/product/{{product._id}}">{{ product.description }} {{ product.department }}  id:{{ product._id }}</a>
         </td>
       </tr>
     </tbody>
