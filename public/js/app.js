@@ -71,12 +71,14 @@ angular.module("productsApp", ['ngRoute'])
         }
     })
     .controller("ListController", function(products, $scope, $http) {
+        var vm=this;
+        vm.productInfo
         $scope.products = products.data;
-
         $scope.searchById = function(searchedItem) {
             var url = "/products/" + searchedItem;
             return $http.get(url).then(function(response) {
                     console.log(response);
+                    vm.productInfo=response.data;
                     return response;
                 }, function(response) {
                     alert("Error finding this product.");
