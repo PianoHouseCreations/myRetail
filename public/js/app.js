@@ -70,7 +70,7 @@ angular.module("productsApp", ['ngRoute'])
                 });
         }
     })
-    .controller("ListController", function(products, $scope) {
+    .controller("ListController", function(products, $scope, $http) {
         $scope.products = products.data;
 
         $scope.searchById = function(searchedItem) {
