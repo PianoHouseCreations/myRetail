@@ -15,7 +15,9 @@
 <div ng-hide="editMode" class="container">
   <div>
 	<p ng-if="product.itemType">itemType: {{ product.itemType }} </p>
-
+	<p ng-if="product.inventoryValue">itemType: {{ product.inventoryValue }} </p>
+	<p ng-if="product.currentPrice">itemType: {{ product.currentPrice }} </p>
+	<p ng-if="product.currencyCode">itemType: {{ product.currencyCode }} </p>
     <p>
       <button style="margin-top:20px" class="btn btn-default" ng-click="toggleEdit()">Edit</button>
       <a style="margin-top:20px" class="btn btn-default" href="#/">Back</a>
