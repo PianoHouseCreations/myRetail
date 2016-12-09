@@ -1,0 +1,30 @@
+<div class = "row">
+  <div class="col-md-6">
+    <h2>
+      {{ product.title }} {{ product.format }}
+    </h2>
+  </div>
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-2">
+    <a href="#/"><button style="margin-top:20px" class="btn btn-default" ng-click="deleteProduct(product._id)">Delete</button></a>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+<div ng-hide="editMode" class="container">
+  <div>
+ <!--    <p ng-if="product.email">email: <a ng-href="mailto:{{ product.email }}" target="_blank">{{ product.email }}</a></p> -->
+    <!-- <p ng-if="product.phone.mobile">phone (m): {{ product.phone.mobile }} </p> -->
+<!--     <p ng-if="product.phone.work">phone (w): {{ product.phone.work }} </p>
+    <p ng-if="product.address"> address: {{ product.address }} </p> -->
+<!--     <p ng-if="product.twitter"> twitter: <a ng-href="https://twitter.com/{{ product.twitter }}" target="_blank">@{{ product.twitter }}</a></p> -->
+    <p>
+      <button style="margin-top:20px" class="btn btn-default" ng-click="toggleEdit()">Edit</button>
+      <a style="margin-top:20px" class="btn btn-default" href="#/">Back</a>
+    </p>
+  </div>
+</div>
+<!-- Product form -->
+<div ng-include="productFormUrl">
+</div>
