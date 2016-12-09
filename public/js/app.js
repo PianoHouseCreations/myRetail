@@ -75,10 +75,8 @@ angular.module("productsApp", ['ngRoute'])
 
         $scope.searchById = function(searchedItem) {
             var url = "/products/" + searchedItem;
-            // return $http.get(url).
-            var url2 = "https://guarded-caverns-35176.herokuapp.com/products/5848de83bf6451001158e16a"
-            return url2
-                then(function(response) {
+            return $http.get(url).then(function(response) {
+                    console.log(response);
                     return response;
                 }, function(response) {
                     alert("Error finding this product.");
