@@ -15,14 +15,14 @@ angular.module("productsApp", ['ngRoute'])
                 templateUrl: "product-form.html"
             })
             .when("/product/:productId", {
-                controller: "EditContactController",
+                controller: "EditProductController",
                 templateUrl: "product.html"
             })
             .otherwise({
                 redirectTo: "/"
             })
     })
-    .service("Contacts", function($http) {
+    .service("Products", function($http) {
         this.getProducts = function() {
             return $http.get("/products").
                 then(function(response) {
@@ -31,7 +31,7 @@ angular.module("productsApp", ['ngRoute'])
                     alert("Error finding products.");
                 });
         }
-        this.createContact = function(product) {
+        this.createProduct = function(product) {
             return $http.post("/products", product).
                 then(function(response) {
                     return response;
@@ -39,7 +39,7 @@ angular.module("productsApp", ['ngRoute'])
                     alert("Error creating product.");
                 });
         }
-        this.getContact = function(productId) {
+        this.getProduct = function(productId) {
             var url = "/products/" + productId;
             return $http.get(url).
                 then(function(response) {
@@ -48,7 +48,7 @@ angular.module("productsApp", ['ngRoute'])
                     alert("Error finding this product.");
                 });
         }
-        this.editContact = function(product) {
+        this.editProduct = function(product) {
             var url = "/products/" + product._id;
             console.log(product._id);
             return $http.put(url, product).
@@ -59,7 +59,7 @@ angular.module("productsApp", ['ngRoute'])
                     console.log(response);
                 });
         }
-        this.deleteContact = function(productId) {
+        this.deleteProduct = function(productId) {
             var url = "/products/" + productId;
             return $http.delete(url).
                 then(function(response) {
@@ -77,13 +77,13 @@ angular.module("productsApp", ['ngRoute'])
             
         }
     })
-    .controller("NewContactController", function($scope, $location, Contacts) {
+    .controller("NewProductController", function($scope, $location, Products) {
         $scope.back = function() {
             $location.path("#/");
         }
 
-        $scope.saveContact = function(product) {
-            Contacts.createContact(product).then(function(doc) {
+        $scope.saveProduct = function(product) {
+            Products.createProduct(product).then(function(doc) {
                 var productUrl = "/product/" + doc.data._id;
                 $location.path(productUrl);
             }, function(response) {
@@ -91,8 +91,8 @@ angular.module("productsApp", ['ngRoute'])
             });
         }
     })
-    .controller("EditContactController", function($scope, $routeParams, Contacts) {
-        Contacts.getContact($routeParams.productId).then(function(doc) {
+    .controller("EditProductController", function($scope, $routeParams, Products) {
+        Products.getProduct($routeParams.productId).then(function(doc) {
             $scope.product = doc.data;
         }, function(response) {
             alert(response);
@@ -108,13 +108,13 @@ angular.module("productsApp", ['ngRoute'])
             $scope.productFormUrl = "";
         }
 
-        $scope.saveContact = function(product) {
-            Contacts.editContact(product);
+        $scope.saveProduct = function(product) {
+            Products.editProduct(product);
             $scope.editMode = false;
             $scope.productFormUrl = "";
         }
 
-        $scope.deleteContact = function(productId) {
-            Contacts.deleteContact(productId);
+        $scope.deleteProduct = function(productId) {
+            Products.deleteProduct(productId);
         }
     });
