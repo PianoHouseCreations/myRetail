@@ -74,7 +74,13 @@ angular.module("productsApp", ['ngRoute'])
         $scope.products = products.data;
 
         $scope.searchById = function(searchedItem) {
-            return $http.get("#/product/{{product._id}}" + searchedItem)
+            var url = "/products/" + searchedItem;
+            return $http.get(url).
+                then(function(response) {
+                    return response;
+                }, function(response) {
+                    alert("Error finding this product.");
+                });
         }
     })
     .controller("NewProductController", function($scope, $location, Products) {
